@@ -67,8 +67,6 @@
 
 
 
-
-
 import React from 'react';
 import bgImage from './assets/bg.png';
 import GoogleIcon from './assets/google.svg';
