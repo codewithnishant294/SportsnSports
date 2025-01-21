@@ -5,7 +5,7 @@ import AdminLogin from './AdminLogin'; // Import the AdminLogin component
 import Dashboard from './pages/Dashboard';
 import TournamentPage from './component/tournament/TournamentPage';
 import BookingPage from './component/Booking/BookingPage';
-
+import LocationDetails from './pages/LocationDetails';
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
           <Route path="/Dashboard" element={<Dashboard/>} /> {/* Dashboard Route */}
           <Route path="/TournamentPage" element={<TournamentPage/>} /> {/* Dashboard Route */}
           <Route path="/BookingPage" element={<BookingPage />} />
+          <Route path="/LocationDetails" element={<LocationDetails />} />
 
 
         </Routes>
