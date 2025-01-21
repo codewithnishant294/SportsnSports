@@ -2,6 +2,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AdminLogin from './AdminLogin'; // Import the AdminLogin component
+import Dashboard from './pages/Dashboard';
+import TournamentPage from './component/tournament/TournamentPage';
+import BookingPage from './component/Booking/BookingPage';
+
 
 function App() {
   return (
@@ -11,8 +15,15 @@ function App() {
         {/* Define the routes for different components */}
         <Routes>
           <Route path="/" element={<AdminLogin />} /> {/* Admin Login Route */}
+          <Route path="/Dashboard" element={<Dashboard/>} /> {/* Dashboard Route */}
+          <Route path="/TournamentPage" element={<TournamentPage/>} /> {/* Dashboard Route */}
+          <Route path="/BookingPage" element={<BookingPage />} />
+
+
         </Routes>
       </div>
+      
+
     </Router>
   );
 }

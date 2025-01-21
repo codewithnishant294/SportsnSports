@@ -186,6 +186,7 @@
 
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';  // Correct import
 import bgImage from './assets/bg.png';
 import GoogleIcon from './assets/google.svg';
 import FacebookIcon from './assets/facebook.svg';
@@ -193,6 +194,7 @@ import MacIcon from './assets/mac.svg';
 
 const AdminLogin = () => {
     const [currentPage, setCurrentPage] = useState('phone');
+    const navigate = useNavigate();  // Initialize navigate function
 
     const handleNext = () => {
         if (currentPage === 'phone') {
@@ -200,6 +202,12 @@ const AdminLogin = () => {
         } else if (currentPage === 'confirmation') {
             setCurrentPage('profile');
         }
+    };
+
+    // Handle form submit and redirect to dashboard
+    const handleSubmit = (e) => {
+        e.preventDefault(); // Prevent default form submission behavior
+        navigate('/dashboard');  // Redirect to the Dashboard page
     };
 
     return (
@@ -243,28 +251,27 @@ const AdminLogin = () => {
                                 Next
                             </button>
                         </form>
-                        
-                 {/* Social login options */}
-                 <div className="text-center text-[#34a0a4] text-sm font-medium font-['Outfit'] mt-6">
-                     Or continue with
-                 </div>
-                 <div className="flex justify-center mt-4 space-x-4">
-                     {/* Google Icon */}
-                     <div className="w-12 h-12 bg-[#d6eced] rounded-lg flex items-center justify-center">
-                         <img src={GoogleIcon} alt="Google" className="w-6 h-6" />
-                     </div>
 
-                     {/* Facebook Icon */}
-                     <div className="w-12 h-12 bg-[#d6eced] rounded-lg flex items-center justify-center">
-                         <img src={FacebookIcon} alt="Facebook" className="w-6 h-6" />
-                    </div>
+                        {/* Social login options */}
+                        <div className="text-center text-[#34a0a4] text-sm font-medium font-['Outfit'] mt-6">
+                            Or continue with
+                        </div>
+                        <div className="flex justify-center mt-4 space-x-4">
+                            {/* Google Icon */}
+                            <div className="w-12 h-12 bg-[#d6eced] rounded-lg flex items-center justify-center">
+                                <img src={GoogleIcon} alt="Google" className="w-6 h-6" />
+                            </div>
 
-                    {/* Mac Icon */}                    <div className="w-12 h-12 bg-[#d6eced] rounded-lg flex items-center justify-center">
-                        <img src={MacIcon} alt="Mac" className="w-6 h-6" />
-                    </div>
-                 </div>
-             
-         
+                            {/* Facebook Icon */}
+                            <div className="w-12 h-12 bg-[#d6eced] rounded-lg flex items-center justify-center">
+                                <img src={FacebookIcon} alt="Facebook" className="w-6 h-6" />
+                            </div>
+
+                            {/* Mac Icon */}
+                            <div className="w-12 h-12 bg-[#d6eced] rounded-lg flex items-center justify-center">
+                                <img src={MacIcon} alt="Mac" className="w-6 h-6" />
+                            </div>
+                        </div>
                     </>
                 )}
 
@@ -312,7 +319,7 @@ const AdminLogin = () => {
                         <p className="text-center text-[#d9ed92] text-[24px] sm:text-[40px] font-['League Spartan'] mb-6">
                             Help us get to know you better
                         </p>
-                        <form className="space-y-4 sm:space-y-6">
+                        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                             <div>
                                 <label htmlFor="name" className="block text-sm font-medium text-gray-700">
                                     Name
